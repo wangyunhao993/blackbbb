@@ -150,14 +150,14 @@
           <!--/幻灯片-->
           <div class="left-220">
             <ul class="side-img-list">
-              <li>
+              <li v-for="(item,index) in toplist">
                 <div class="img-box">
-                  <label>1</label>
-                  <img src="http://39.108.135.214:8899/imgs/SJ4EgwosX0wTqvyAvhtFGT1w.jpg">
+                  <label>{{index+1}}</label>
+                  <img :src="item.img_url">
                 </div>
                 <div class="txt-box">
-                  <a href="/goods/show-98.html">骆驼男装2017秋季新款运动休闲纯色夹克青年宽松长袖针织开衫卫衣</a>
-                  <span>2017-09-26</span>
+                  <a href="/goods/show-98.html">{{item.title}}</a>
+                  <span>{{item.add_time|formatTime}}</span>
                 </div>
               </li>
               <li>
@@ -647,7 +647,36 @@
   </div>
 </template>
 <script>
-export default {};
+// 导入 axios
+import axios from 'axios';
+import moment from 'moment';
+export default {
+  neme:"首页",
+  data(){
+    return{
+      catelist:[],
+      sliderlist:[],
+      toplist:[]
+    }
+  },
+  filters:{
+    formatTime(value){
+      console.log(value);
+      return  moment(value).format('YYYY-MM-DD');
+      
+    }
+  },
+  created() {
+        axios.get(`http://111.230.232.110:8899/site/goods/gettopdata/goods`)
+        .then(res=>{
+          // console.log(res)
+          this.catelsit = res.data.message.catelst;
+          this.sliderlist = res.data.message.sliderlist;
+          this.toplist = res.data.message.toplist;
+          console.log(this.toplist)
+        })
+      },
+};
 </script>
 <style>
 </style>

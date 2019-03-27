@@ -9,6 +9,7 @@ Vue.config.productionTip = false
 
 // 导入组件
 import index from './components/index.vue'
+import cart from './components/cart.vue'
 // 规则
 let routes =[
   {
@@ -18,6 +19,10 @@ let routes =[
   {
     path:'/index',
     component:index
+  },
+  {
+    path:'/cart',
+    component:cart
   }
 ]
 
