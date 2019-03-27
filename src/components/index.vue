@@ -160,53 +160,18 @@
                   <span>{{item.add_time|formatTime}}</span>
                 </div>
               </li>
-              <li>
-                <div class="img-box">
-                  <label>2</label>
-                  <img
-                    src="http://39.108.135.214:8899/upload/201504/20/thumb_201504200314272543.jpg"
-                  >
-                </div>
-                <div class="txt-box">
-                  <a href="/goods/show-98.html">奔腾（BNTN） 380功放+纽约至尊 套装家庭影院</a>
-                  <span>2015-04-20</span>
-                </div>
-              </li>
-              <li>
-                <div class="img-box">
-                  <label>3</label>
-                  <img
-                    src="http://39.108.135.214:8899/upload/201504/20/thumb_201504200318534459.jpg"
-                  >
-                </div>
-                <div class="txt-box">
-                  <a href="/goods/show-98.html">飞利浦（PHILIPS）DVP3690 全高清DVD影碟机播放器</a>
-                  <span>2015-04-20</span>
-                </div>
-              </li>
-              <li>
-                <div class="img-box">
-                  <label>4</label>
-                  <img
-                    src="http://39.108.135.214:8899/upload/201504/20/thumb_201504200258403759.jpg"
-                  >
-                </div>
-                <div class="txt-box">
-                  <a href="/goods/show-98.html">三星（SAMSUNG）UA40HU5920JXXZ 40英寸4K超高清</a>
-                  <span>2015-04-20</span>
-                </div>
-              </li>
             </ul>
           </div>
         </div>
       </div>
     </div>
-    <div class="section">
+    <!-- 底部区域 -->
+    <div class="section" v-for="(item,index) in goodsList">
       <div class="main-tit">
-        <h2>手机数码</h2>
+        <h2>{{item.catetitle}}</h2>
         <p>
-          <a href="/goods/43.html">手机通讯</a>
-          <a href="/goods/43.html">摄影摄像</a>
+          <a v-for="(it,index) in item.leve12catelist" href="/goods/43.html">{{it.subcatetitle}}</a>
+          <!-- <a href="/goods/43.html">摄影摄像</a> -->
           <a href="/goods/40.html">
             更多
             <i>+</i>
@@ -216,111 +181,23 @@
       <div class="wrapper clearfix">
         <div class="wrap-box">
           <ul class="img-list">
-            <li>
+            <li v-for="it in item.datas">
               <a href="#/site/goodsinfo/87" class>
                 <div class="img-box">
                   <img
-                    src="http://39.108.135.214:8899/upload/201504/20/thumb_201504200046589514.jpg"
+                    :src="it.img_url"
                   >
                 </div>
                 <div class="info">
-                  <h3>华为（HUAWEI）荣耀6Plus 16G双4G版</h3>
+                  <h3>{{it.artTitle}}</h3>
                   <p class="price">
-                    <b>2195</b>元
+                    <b>{{it.spll_price}}</b>元
                   </p>
                   <p>
-                    <strong>库存 60</strong>
+                    <strong>库存 {{it.quantiy}}</strong>
                     <span>
                       市场价：
-                      <s>2499</s>
-                    </span>
-                  </p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="#/site/goodsinfo/88" class>
-                <div class="img-box">
-                  <img
-                    src="http://39.108.135.214:8899/upload/201504/20/thumb_201504200059017695.jpg"
-                  >
-                </div>
-                <div class="info">
-                  <h3>苹果Apple iPhone 6 Plus 16G 4G手机（联通三网版）</h3>
-                  <p class="price">
-                    <b>5780</b>元
-                  </p>
-                  <p>
-                    <strong>库存 198</strong>
-                    <span>
-                      市场价：
-                      <s>6388</s>
-                    </span>
-                  </p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="#/site/goodsinfo/89" class>
-                <div class="img-box">
-                  <img
-                    src="http://39.108.135.214:8899/upload/201504/20/thumb_201504200119256512.jpg"
-                  >
-                </div>
-                <div class="info">
-                  <h3>小米（Mi）小米Note 16G双网通版</h3>
-                  <p class="price">
-                    <b>2299</b>元
-                  </p>
-                  <p>
-                    <strong>库存 59</strong>
-                    <span>
-                      市场价：
-                      <s>2699</s>
-                    </span>
-                  </p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="#/site/goodsinfo/90" class>
-                <div class="img-box">
-                  <img
-                    src="http://39.108.135.214:8899/upload/201504/20/thumb_201504200154277661.jpg"
-                  >
-                </div>
-                <div class="info">
-                  <h3>佳能（Canon） EOS 700D 单反套机</h3>
-                  <p class="price">
-                    <b>4799</b>元
-                  </p>
-                  <p>
-                    <strong>库存 100</strong>
-                    <span>
-                      市场价：
-                      <s>5099</s>
-                    </span>
-                  </p>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="#/site/goodsinfo/91" class>
-                <div class="img-box">
-                  <img
-                    src="http://39.108.135.214:8899/upload/201504/20/thumb_201504200214471783.jpg"
-                  >
-                </div>
-                <div class="info">
-                  <h3>尼康(Nikon)D3300套机（18-55mm f/3.5-5.6G VRII）（黑色）</h3>
-                  <p class="price">
-                    <b>3180</b>元
-                  </p>
-                  <p>
-                    <strong>库存 10</strong>
-                    <span>
-                      市场价：
-                      <s>3150</s>
+                      <s>{{it.market_price}}</s>
                     </span>
                   </p>
                 </div>
@@ -654,14 +531,19 @@ export default {
   neme:"首页",
   data(){
     return{
+      // 
       catelist:[],
+      //
       sliderlist:[],
-      toplist:[]
+      // 右边热门
+      toplist:[],
+      // 底部数据
+      goodsList:[]
     }
   },
   filters:{
     formatTime(value){
-      console.log(value);
+      // console.log(value);
       return  moment(value).format('YYYY-MM-DD');
       
     }
@@ -673,7 +555,17 @@ export default {
           this.catelsit = res.data.message.catelst;
           this.sliderlist = res.data.message.sliderlist;
           this.toplist = res.data.message.toplist;
-          console.log(this.toplist)
+          // console.log(this.toplist)
+        });
+
+        // 2.手机请求
+        axios.get(`http://111.230.232.110:8899/site/goods/getgoodsgroup`)
+        .then(res=>{
+          // console.log(res);
+          this.goodsList = res.data.message;
+          console.log(this.goodsList);
+          
+          
         })
       },
 };
