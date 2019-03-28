@@ -182,7 +182,9 @@
         <div class="wrap-box">
           <ul class="img-list">
             <li v-for="it in item.datas">
-              <a href="#/site/goodsinfo/87" class>
+              <!-- 下面这个a是要跳转去详情页 -->
+              <!-- <a href="#/site/goodsinfo/87" class> -->
+              <router-link :to="'/detail/'+it.artID">
                 <div class="img-box">
                   <img
                     :src="it.img_url"
@@ -201,7 +203,8 @@
                     </span>
                   </p>
                 </div>
-              </a>
+              <!-- </a> -->
+              </router-link>
             </li>
           </ul>
         </div>
@@ -525,7 +528,7 @@
 </template>
 <script>
 // 导入 axios
-import axios from 'axios';
+// import axios from 'axios';
 import moment from 'moment';
 export default {
   neme:"首页",
@@ -549,7 +552,7 @@ export default {
     }
   },
   created() {
-        axios.get(`http://111.230.232.110:8899/site/goods/gettopdata/goods`)
+        this.$axios.get(`http://111.230.232.110:8899/site/goods/gettopdata/goods`)
         .then(res=>{
           // console.log(res)
           this.catelsit = res.data.message.catelst;
@@ -559,7 +562,7 @@ export default {
         });
 
         // 2.手机请求
-        axios.get(`http://111.230.232.110:8899/site/goods/getgoodsgroup`)
+        this.$axios.get(`http://111.230.232.110:8899/site/goods/getgoodsgroup`)
         .then(res=>{
           // console.log(res);
           this.goodsList = res.data.message;
@@ -572,3 +575,4 @@ export default {
 </script>
 <style>
 </style>
+
