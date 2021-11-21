@@ -4,7 +4,7 @@
       <div class="location">
         <span>当前位置：</span>
         <a href="#/" class="router-link-active">首页</a> &gt;
-        <a href="#/site/goodslist" class="router-link-exact-active router-link-active">购物商城(wyh改的代码)</a>
+        <a href="#/site/goodslist" class="router-link-exact-active router-link-active">购物商城(冲突-改的代码)</a>
       </div>
     </div>
     <div class="section">
